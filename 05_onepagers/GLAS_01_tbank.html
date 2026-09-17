@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ГЛАС × Т-Банк</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --accent: #e8c000;
+    --ink: #14161a;
+    --muted: #5d636e;
+    --line: #e3e6ea;
+    --bg: #ffffff;
+    --soft: #f6f7f9;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #8a8f98; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: 210mm; min-height: 297mm; margin: 0 auto; background: var(--bg);
+    padding: 12mm 13mm 10mm; display: flex; flex-direction: column;
+  }
+  /* ---------- header ---------- */
+  .top { display: flex; justify-content: space-between; align-items: flex-start;
+          border-bottom: 2.5px solid var(--accent); padding-bottom: 5mm; }
+  .logo { font-size: 26pt; font-weight: 800; letter-spacing: 3px; line-height: 1; }
+  .logo span { color: var(--accent); }
+  .logo-sub { font-size: 7.5pt; color: var(--muted); letter-spacing: 1.6px;
+               text-transform: uppercase; margin-top: 2mm; }
+  .partner { text-align: right; }
+  .partner-label { font-size: 7pt; color: var(--muted); letter-spacing: 1.6px;
+                    text-transform: uppercase; }
+  .partner-name { font-size: 15pt; font-weight: 700; color: var(--accent); margin-top: 1.5mm;
+                   line-height: 1.15; max-width: 72mm; }
+  /* ---------- hero ---------- */
+  .hero { margin-top: 6mm; }
+  .hero h1 { font-size: 13.5pt; line-height: 1.35; margin: 0; font-weight: 650; }
+  .hero .quote { margin-top: 4mm; padding: 3.5mm 4mm; background: var(--soft);
+                  border-left: 3px solid var(--accent); font-size: 8.5pt; line-height: 1.5;
+                  color: #2e3239; font-style: italic; }
+  /* ---------- stats ---------- */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-top: 5mm; }
+  .stat { border: 1px solid var(--line); border-radius: 3px; padding: 3mm 3mm 3.5mm; }
+  .stat b { display: block; font-size: 14pt; color: var(--accent); line-height: 1; }
+  .stat span { display: block; font-size: 6.8pt; color: var(--muted); margin-top: 1.8mm;
+                line-height: 1.35; text-transform: uppercase; letter-spacing: 0.4px; }
+  /* ---------- section ---------- */
+  .sec { margin-top: 6mm; }
+  .sec-h { font-size: 8pt; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase;
+            color: var(--accent); padding-bottom: 2mm; border-bottom: 1px solid var(--line);
+            margin-bottom: 3.5mm; }
+  /* ---------- scenes table ---------- */
+  table { width: 100%; border-collapse: collapse; font-size: 8.3pt; }
+  thead th { text-align: left; font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.9px;
+              color: var(--muted); font-weight: 700; padding: 0 2mm 2mm 0; border-bottom: 1px solid var(--line); }
+  tbody td { padding: 2.6mm 2mm 2.6mm 0; border-bottom: 1px solid #f0f2f4; vertical-align: top;
+              line-height: 1.4; }
+  tbody tr:last-child td { border-bottom: none; }
+  .c-ep { width: 13mm; color: var(--muted); font-variant-numeric: tabular-nums; font-size: 7.6pt; }
+  .c-scene { width: 62mm; }
+  .c-prod { font-weight: 650; color: var(--accent); }
+  .tag { display: inline-block; font-size: 6.4pt; font-weight: 700; letter-spacing: 0.6px;
+          text-transform: uppercase; padding: 0.8mm 1.6mm; border-radius: 2px;
+          background: var(--accent); color: #fff; vertical-align: middle; margin-left: 1.5mm; }
+  .tag.w { background: #1f8a4c; }
+  /* ---------- why ---------- */
+  .why { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 6mm; font-size: 8.3pt;
+          line-height: 1.5; }
+  .why div b { display: block; color: var(--accent); font-size: 7.4pt; text-transform: uppercase;
+                letter-spacing: 0.7px; margin-bottom: 1.2mm; }
+  /* ---------- offer ---------- */
+  .offer { margin-top: auto; padding-top: 5mm; }
+  .offer-box { background: var(--ink); color: #fff; border-radius: 4px; padding: 4.5mm 5mm;
+                display: flex; justify-content: space-between; align-items: center; gap: 6mm; }
+  .offer-box .l { flex: 1; }
+  .offer-box .fmt { font-size: 6.9pt; text-transform: uppercase; letter-spacing: 1.4px;
+                     color: #9aa1ad; }
+  .offer-box .val { font-size: 12pt; font-weight: 700; margin-top: 1.5mm; line-height: 1.3; }
+  .offer-box .r { text-align: right; border-left: 1px solid #343941; padding-left: 6mm; }
+  .offer-box .price { font-size: 16pt; font-weight: 800; color: var(--accent); line-height: 1;
+                       white-space: nowrap; }
+  .offer-box .price-sub { font-size: 6.6pt; color: #9aa1ad; margin-top: 1.8mm;
+                           text-transform: uppercase; letter-spacing: 0.8px; }
+  .foot { display: flex; justify-content: space-between; align-items: flex-end;
+           margin-top: 4mm; font-size: 7.4pt; color: var(--muted); line-height: 1.5; }
+  .foot b { color: var(--ink); font-size: 8.2pt; }
+  .legal { font-size: 6.4pt; color: #9aa1ad; max-width: 88mm; line-height: 1.45; text-align: right; }
+  @media print {
+    html, body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+  }
+  @media screen {
+    .page { box-shadow: 0 4px 28px rgba(0,0,0,.28); margin: 8mm auto; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div>
+      <div class="logo">Г<span>Л</span>АС</div>
+      <div class="logo-sub">Анимационный сериал · 8–10 × 18–20 мин · 18+</div>
+    </div>
+    <div class="partner">
+      <div class="partner-label">Предложение о партнёрстве</div>
+      <div class="partner-name">Т-Банк / Т-Инвестиции</div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>Первые две серии сезона — про математика, который три года строил модель прогноза рынка без единой ценовой строчки в обучении. Терминал, в котором он это делает, может быть вашим.</h1>
+    <div class="quote">«Смотри. Никаких цен. Ни объёмов, ни новостей, ни твитов — ничего рыночного. Только планеты. Двести восемь параметров. И точность по направлению — семьдесят три процента.»</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>18–27</b><span>Ядро аудитории 20–25</span></div>
+    <div class="stat"><b>5</b><span>Сцен с вашим продуктом</span></div>
+    <div class="stat"><b>М60/Ж40</b><span>Города-миллионники</span></div>
+    <div class="stat"><b>0%</b><span>Доля тех, кто смотрит ТВ</span></div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h">Ваши продукты в сценарии</div>
+    <table>
+      <thead><tr><th class="c-ep">Серия</th><th class="c-scene">Сцена</th><th>Продукт</th></tr></thead>
+      <tbody>
+        <tr><td class="c-ep">1</td><td class="c-scene">Квартира в Тропарёво, ночь. Два монитора, бэктест модели</td><td class="c-prod">Терминал Т-Инвестиций<span class="tag w">в сценарии</span></td></tr>
+        <tr><td class="c-ep">1</td><td class="c-scene">Анна проверяет гипотезу Эдуарда на истории, спорит цифрами</td><td class="c-prod">Аналитика и графики</td></tr>
+        <tr><td class="c-ep">2</td><td class="c-scene">Прямой эфир: герой публикует модель на 720 зрителей</td><td class="c-prod">Скринкаст интерфейса</td></tr>
+        <tr><td class="c-ep">2</td><td class="c-scene">Разговор про отца Анны, потерявшего всё в 1998-м</td><td class="c-prod">Тема финансовой грамотности</td></tr>
+        <tr><td class="c-ep">4–8</td><td class="c-scene">Фоновая линия: герои живут на гранты и считают деньги</td><td class="c-prod">Приложение в кадре</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h">Почему это сработает</div>
+    <div class="why">
+      <div><b>Один и тот же человек</b>Ваш клиент и наш зритель — это одно лицо: 20–27, IT или финансы, брокерский счёт, читает Т—Ж, смотрит VK Видео, не смотрит телевизор.</div>
+      <div><b>Сюжет, а не фон</b>Продукт не стоит в углу кадра — в нём происходит главное действие двух серий. Это самая запоминаемая форма интеграции.</div>
+      <div><b>Вторичное ядро</b>Через линию квант-трейдинга сериал достаёт до 28–45: IT-руководители, финансисты, самый доходный сегмент.</div>
+      <div><b>Долгий хвост</b>Серия живёт в каталоге платформы годами. Преролл исчезает через пять секунд.</div>
+    </div>
+  </div>
+
+  <div class="offer">
+    <div class="offer-box">
+      <div class="l">
+        <div class="fmt">Предлагаемый формат</div>
+        <div class="val">Сюжетная интеграция категории B<br>+ консультация на стадии сценария</div>
+      </div>
+      <div class="r">
+        <div class="price">5–8 млн ₽</div>
+        <div class="price-sub">за сезон · эксклюзив в категории</div>
+      </div>
+    </div>
+    <div class="foot">
+      <div>
+        <b>Эдуард Самохвалов</b> · автор и продюсер<br>
+        +7 977 119-23-66 · edward.samokhvalov@gmail.com · Telegram: @EduardSam
+      </div>
+      <div class="legal">
+        Органичная интеграция в произведение искусства выведена из-под действия закона
+        о рекламе (ч. 9 ст. 2 ФЗ-38): не требует маркировки внутри серии.
+        Проект в разработке, охваты не гарантируются.
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
