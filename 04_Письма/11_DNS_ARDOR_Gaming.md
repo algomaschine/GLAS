@@ -38,4 +38,4 @@
 edward.samokhvalov@gmail.com
 Telegram: @EduardSam
 
-**Вложение:** `GLAS_DNS-ARDOR_onepager.pdf`
+**Вложение:** `GLAS_DNS_ARDOR_Gaming.pdf`
