@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ГЛАС — инвестору</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --accent:#c8461e; --ink:#14161a; --muted:#5d636e;
+    --line:#e3e6ea; --bg:#fff; --soft:#f6f7f9; --ok:#1f8a4c;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#8a8f98}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter","Helvetica Neue",Arial,sans-serif;
+       color:var(--ink);-webkit-font-smoothing:antialiased}
+  .page{width:210mm;min-height:297mm;margin:0 auto;background:var(--bg);
+        padding:11mm 13mm 9mm;display:flex;flex-direction:column}
+
+  .top{display:flex;justify-content:space-between;align-items:flex-start;
+       border-bottom:2.5px solid var(--accent);padding-bottom:4.5mm}
+  .logo{font-size:26pt;font-weight:800;letter-spacing:3px;line-height:1}
+  .logo span{color:var(--accent)}
+  .logo-sub{font-size:7.5pt;color:var(--muted);letter-spacing:1.6px;text-transform:uppercase;margin-top:2mm}
+  .ask{text-align:right}
+  .ask-l{font-size:7pt;color:var(--muted);letter-spacing:1.6px;text-transform:uppercase}
+  .ask-v{font-size:23pt;font-weight:800;color:var(--accent);line-height:1;margin-top:1.5mm}
+  .ask-s{font-size:7.2pt;color:var(--muted);margin-top:1.5mm}
+
+  .hero{margin-top:5mm}
+  .hero h1{font-size:12.5pt;line-height:1.4;margin:0;font-weight:650}
+  .hero h1 b{color:var(--accent)}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-top:5mm}
+  .stat{border:1px solid var(--line);border-radius:3px;padding:3mm}
+  .stat b{display:block;font-size:13.5pt;color:var(--accent);line-height:1}
+  .stat span{display:block;font-size:6.6pt;color:var(--muted);margin-top:1.8mm;line-height:1.35;
+             text-transform:uppercase;letter-spacing:.4px}
+
+  .sec{margin-top:5.5mm}
+  .sec-h{font-size:8pt;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);
+         padding-bottom:2mm;border-bottom:1px solid var(--line);margin-bottom:3mm}
+
+  table{width:100%;border-collapse:collapse;font-size:8.2pt}
+  thead th{text-align:left;font-size:6.7pt;text-transform:uppercase;letter-spacing:.9px;color:var(--muted);
+           font-weight:700;padding:0 2mm 2mm 0;border-bottom:1px solid var(--line)}
+  tbody td{padding:2.3mm 2mm 2.3mm 0;border-bottom:1px solid #f0f2f4;vertical-align:top;line-height:1.4}
+  tbody tr:last-child td{border-bottom:none}
+  td.num{font-weight:700;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
+  td.p{width:20mm;font-size:7.4pt;color:var(--muted)}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+  .why{font-size:8.2pt;line-height:1.5}
+  .why div{margin-bottom:2.8mm}
+  .why b{display:block;color:var(--accent);font-size:7.3pt;text-transform:uppercase;letter-spacing:.7px;
+         margin-bottom:1mm}
+
+  .tr{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:1mm}
+  .trc{border:1px solid var(--line);border-left:3px solid var(--ok);border-radius:3px;padding:2.8mm}
+  .trc b{display:block;font-size:11pt;color:var(--ink);line-height:1}
+  .trc span{display:block;font-size:6.6pt;color:var(--muted);margin-top:1.5mm;line-height:1.4}
+
+  .risk{font-size:7.6pt;line-height:1.5;background:var(--soft);border-left:3px solid var(--muted);
+        padding:3mm 3.5mm;margin-top:3mm;color:#2e3239}
+  .risk b{color:var(--ink)}
+
+  .foot{margin-top:auto;padding-top:4.5mm;display:flex;justify-content:space-between;align-items:flex-end;
+        font-size:7.4pt;color:var(--muted);line-height:1.5;border-top:1px solid var(--line)}
+  .foot b{color:var(--ink);font-size:8.2pt}
+  .foot .r{text-align:right;font-size:6.5pt;color:#9aa1ad;max-width:80mm}
+
+  @media print{html,body{background:#fff}.page{margin:0;box-shadow:none}}
+  @media screen{.page{box-shadow:0 4px 28px rgba(0,0,0,.28);margin:8mm auto}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div>
+      <div class="logo">Г<span>Л</span>АС</div>
+      <div class="logo-sub">Анимационный сериал · 8–10 × 18–20 мин · аудитория 18–27</div>
+    </div>
+    <div class="ask">
+      <div class="ask-l">Запрашиваемый раунд</div>
+      <div class="ask-v">5 млн ₽</div>
+      <div class="ask-s">пилот + первая волна продвижения · 5 месяцев</div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>Себестоимость серии — <b>3 млн ₽</b> вместо 30 за счёт ИИ-производства.
+    Типовая интеграция бренда на рынке РФ — <b>3–7 млн ₽</b>.
+    То есть <b>одна интеграция окупает одну серию</b>, а пять — весь сезон.</h1>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>+45%</b><span>Рост выручки видеосервисов РФ за год</span></div>
+    <div class="stat"><b>21,8 млрд</b><span>Распределил ИРИ на 152 проекта</span></div>
+    <div class="stat"><b>15–20 млрд</b><span>Рынок product placement в РФ</span></div>
+    <div class="stat"><b>2×</b><span>Дешевле игрового сериала для ТВ</span></div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h">Четыре источника возврата — достаточно двух</div>
+    <table>
+      <thead><tr><th>Источник</th><th class="p">Вероятность</th><th>Год 1–2</th></tr></thead>
+      <tbody>
+        <tr><td>Product placement, 5–7 интеграций. Подготовлены 12 адресных предложений, две интеграции уже написаны в сценарий</td><td class="p">Высокая</td><td class="num">15–49 млн ₽</td></tr>
+        <tr><td>Грант ИРИ — проект попадает в три направления: молодёжный контент, ИИ-контент, видеоконтент</td><td class="p">Средне-высокая</td><td class="num">10–40 млн ₽</td></tr>
+        <tr><td>Лицензия платформе: Кинопоиск, Okko, Кион, VK Видео</td><td class="p">Средняя</td><td class="num">8–25 млн ₽</td></tr>
+        <tr><td>Монетизация собственных каналов и мерч</td><td class="p">Высокая</td><td class="num">1–5 млн ₽</td></tr>
+        <tr><td><b>Против полных затрат 42,6 млн ₽ (пилот + сезон + промо)</b></td><td class="p"></td><td class="num">34–119 млн ₽</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec two">
+    <div>
+      <div class="sec-h">Почему проект взлетит</div>
+      <div class="why">
+        <div><b>Материал готов</b>Сценарий полного метра и приквела написаны. Редакторская оценка 7,5/10. На сезон хватает без дописывания с нуля.</div>
+        <div><b>Анимация снимает потолок</b>Сирия, Ибица, Крым, Урал, «Лужники». В игровом кино — 250 млн ₽ и год экспедиций. В анимации локация стоит один фон.</div>
+        <div><b>Автор внутри темы</b>Титр «по мотивам реальных исследований» — факт, а не украшение. Это даёт бесплатный вход в профильную аудиторию.</div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-h">Как выходим на аудиторию</div>
+      <div class="why">
+        <div><b>Сначала аудитория, потом сериал</b>Три месяца собираем подписчиков вокруг темы через Habr, GitHub, VC, Telegram. Стоит 0,35–0,8 млн ₽, даёт 5–15 тыс. человек.</div>
+        <div><b>Пилот выходит в готовую базу</b>Платное промо усиливает старт, а не создаёт его с нуля. Разница в цене — вчетверо.</div>
+        <div><b>Бренды промотируют нас сами</b>Пункт в договоре: партнёр продвигает сериал на своих каналах. У Т-Банка и МТС аудитория на порядки больше нашей.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h">Деньги траншами — риск инвестора ограничен</div>
+    <div class="tr">
+      <div class="trc"><b>1,5 млн ₽</b><span>Октябрь 2026 · старт</span></div>
+      <div class="trc"><b>1,5 млн ₽</b><span>Декабрь 2026 · 3 000 подписчиков, стиль утверждён, 30 писем брендам отправлены</span></div>
+      <div class="trc"><b>2,0 млн ₽</b><span>Январь 2027 · пилот готов, 5 000 подписчиков, заявка в ИРИ подана</span></div>
+    </div>
+    <div class="risk">
+      <b>Риски называем сами.</b> Пилота нет — поэтому раунд именно под него, а не под сезон.
+      Команды пока нет, это проект одного человека, и часть раунда идёт на сборку продакшена — считаем это главным риском.
+      Ни один бренд не подписан: все цифры возврата — расчёт по рыночным аналогам, а не договорённости.
+      Не пройдена контрольная точка — транш не выдаётся, максимальная потеря ограничена выданным.
+    </div>
+  </div>
+
+  <div class="foot">
+    <div>
+      <b>Эдуард Самохвалов</b> · автор и продюсер<br>
+      +7 977 119-23-66 · edward.samokhvalov@gmail.com · Telegram: @EduardSam
+    </div>
+    <div class="r">
+      Полные материалы — сметы, стратегия продвижения, письма брендам, презентации —
+      в репозитории github.com/algomaschine/GLAS
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
